@@ -14,7 +14,8 @@ sadlang-ai/
 │   ├── ownership.md
 │   ├── types.md
 │   ├── errors.md
-│   └── stdlib.md
+│   ├── stdlib.md
+│   └── rfcs.md       # فتح مقترحات تصميم (RFC)
 ├── examples/       # أمثلة كود قابلة للتشغيل مشروحة
 │   ├── basic.md
 │   ├── ownership.md
@@ -24,7 +25,8 @@ sadlang-ai/
 │   ├── write-code.md
 │   ├── explain-code.md
 │   ├── fix-errors.md
-│   └── translate.md
+│   ├── translate.md
+│   └── open-rfc.md
 ├── schemas/        # مخططات بنيوية للغة (YAML) للاستهلاك الآلي
 │   ├── grammar.yaml
 │   ├── types.yaml
@@ -32,11 +34,13 @@ sadlang-ai/
 ├── prompts/        # قوالب موجّهات جاهزة
 │   ├── explain.txt
 │   ├── fix.txt
-│   └── translate.txt
-└── agents/         # تعريفات وكلاء جاهزة (معلّم، مُدقّق، مترجم)
+│   ├── translate.txt
+│   └── rfc.txt
+└── agents/         # تعريفات وكلاء جاهزة (معلّم، مُدقّق، مترجم، كاتب RFC)
     ├── teacher.json
     ├── linter.json
-    └── translator.json
+    ├── translator.json
+    └── rfc-author.json
 ```
 
 ## كيف تُستعمل

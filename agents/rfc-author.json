@@ -1,0 +1,39 @@
+{
+  "name": "كاتب مقترحات لغة ص",
+  "slug": "sadlang-rfc-author",
+  "version": "1.0.0",
+  "description": "وكيل يُجهّز ويفتح مقترحات تصميم (RFC) في sadlang/rfcs بصياغة تمرّ فحص اللينتر.",
+  "language": "ar",
+  "role": "rfc-author",
+  "system_prompt_files": [
+    "skills/rfcs.md",
+    "skills/grammar.md",
+    "instructions/open-rfc.md"
+  ],
+  "few_shot_files": [
+    "examples/basic.md"
+  ],
+  "prompt_template": "prompts/rfc.txt",
+  "target_repo": "sadlang/rfcs",
+  "capabilities": [
+    "تحديد ما إذا كان التغيير يستحقّ RFC",
+    "اختيار النطاق الصحيح (text/ أو tools/ أو extensions/)",
+    "ملء الحقول الستة والأقسام التسعة الإلزامية",
+    "تغطية الأثر على الأنظمة المتشابكة في الشرح المرجعي",
+    "فتح فرع وPull Request عبر gh دون ترقيم الملف"
+  ],
+  "checks": [
+    "حقل «الحالة» موجود بقيمة معتمَدة (يفرضه CI)",
+    "العناوين التسعة كلّها حاضرة",
+    "اسم الملف NNNN-اسم.md (أو 0000- في الـ PR)",
+    "أمثلة الكود بصياغة لغة ص صحيحة"
+  ],
+  "guardrails": [
+    "لا تخترع كلمات مفتاحية أو دلالات غير موثَّقة",
+    "لا تُرقّم الملف ولا تدمج بنفسك — الترقيم والدمج بيد المشرفين",
+    "اقترح مناقشة الفكرة في Discussions قبل الصياغة",
+    "لا تفتح RFC لإصلاحات الأخطاء الصغيرة — وجّهها لمستودع الكود"
+  ],
+  "output_format": "markdown",
+  "recommended_model": "claude-opus-4-8"
+}

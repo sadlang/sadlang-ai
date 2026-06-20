@@ -1,0 +1,57 @@
+# مخطّط نظام الأنواع في لغة ص
+language: "لغة ص"
+inference: true               # استنتاج الأنواع مدعوم
+type_names_reserved: false    # أسماء الأنواع ليست كلمات محجوزة
+
+primitive_types:
+  - name: "رقم"
+    kind: integer
+  - name: "عشري"
+    kind: float
+  - name: "نص"
+    kind: string
+  - name: "منطقي"
+    kind: boolean
+
+composite_types:
+  array: { literal: "[1، 2، 3]", reflect_as: "كائن" }
+  map: { literal: "{\"م\": ق}", reflect_as: "كائن" }
+  object: { reflect_as: "كائن" }
+
+introspection:
+  type_of: "نوع(قيمة)"        # يُرجع اسم النوع نصًّا
+  to_number: "لرقم(قيمة)"
+  to_string: "لنص(قيمة)"
+
+oop:
+  class: "صنف"
+  struct: "بنية"              # حقول فقط
+  new_required: true
+  constructor: "باني"
+  inheritance: "يرث"
+  super_call: ["الأساس", "أساس"]
+  polymorphism: override_methods
+  static_member:
+    keyword: "ساكن"
+    access: "اسم_الصنف.الحقل"  # ليس عبر هذا
+  access_modifiers:
+    public: "عام"             # افتراضي
+    private: "خاص"
+    protected: "محمي"
+  operator_overload: "عامل +(آخر) ... نهاية"
+  traits:
+    declare: "سمة"
+    implement: "نفّذ السمة لـ الصنف"
+  properties:
+    keyword: "خاصية"
+    getter: "احصل"
+    setter: "عيّن(قيمة)"
+
+where_constraints:
+  keyword: "حيث"
+  enforced_at: runtime
+  enforced_traits:
+    - { name: "رقمي", accepts: ["رقم", "عشري"] }
+    - { name: "نصي", accepts: ["نص"] }
+    - { name: "قابل_للمقارنة", accepts: ["رقم", "عشري", "نص"] }
+  unknown_traits: informational_only

@@ -1,0 +1,82 @@
+# مخطّط بنيوي لقواعد لغة ص — للاستهلاك الآلي من الوكلاء
+# هذا وصف مبسّط للمكوّنات النحوية، ليس قواعد BNF كاملة.
+language: "لغة ص"
+direction: rtl
+block_terminator: "نهاية"        # كل كتلة تُغلَق بهذه الكلمة
+uses_braces: false               # لا أقواس معقوصة للكتل
+list_separator: "،"              # الفاصلة العربية
+
+comments:
+  line: "#"
+  block: ["#*", "*#"]
+  doc_line: "##"
+  doc_block: ["#**", "**#"]
+
+literals:
+  true: ["صحيح", "صح"]
+  false: ["خطأ", "خاطئ"]
+  null: ["لاشيء", "عدم"]
+  fstring_prefix: "م"            # م"...{متغير}..."
+
+reserved_words: ["صحيح", "خطأ", "لاشيء", "تعداد"]
+
+operators:
+  arithmetic: ["+", "-", "*", "/", "%", "**"]
+  comparison: ["==", "!=", "<", ">", "<=", ">="]
+  logical: ["&&", "و", "||", "أو", "!", "ليس"]
+  assignment: ["=", "+=", "-=", "*=", "/="]
+  membership: "في"
+  ternary: "شرط ? أ : ب"
+
+keywords:
+  variable: "متغير"
+  constant: "ثابت"
+  function: "دالة"
+  return: "ارجع"
+  if: ["إذا", "اذا"]
+  elif: ["وإلا_إذا", "والا_اذا"]
+  else: ["وإلا", "والا"]
+  while: "بينما"
+  foreach: "لكل ... في ..."
+  break: ["اخرج", "توقف"]
+  continue: ["تابع", "استمر"]
+  match: "طابق"
+  switch: "حالة"
+  when: "عندما"
+  default: ["افتراضي", "_"]
+  class: "صنف"
+  struct: "بنية"           # حقول فقط — لا باني ولا دوال
+  new: "جديد"              # إلزامي لإنشاء كائن
+  this: "هذا"
+  constructor: "باني"
+  extends: "يرث"
+  super: ["الأساس", "أساس"]
+  try: "حاول"
+  catch: "امسك"            # بدون أقواس: امسك خ
+  throw: "ارمي"
+  finally: "أخيراً"
+  export: "صدّر"
+  import: "استورد"
+  from: "من"
+  as: "كـ"
+  lambda: "لامدا"          # بناء: لامدا(س) => تعبير
+  trait: "سمة"
+  implements: "نفّذ"
+  operator: "عامل"
+  defer: "أجّل"
+  static: "ساكن"
+  access_modifiers: ["عام", "خاص", "محمي"]
+
+control_blocks_requiring_end:
+  ["دالة", "صنف", "إذا", "بينما", "لكل", "حاول", "طابق", "حالة", "بنية", "امتداد", "عقد"]
+
+advanced:
+  macros: { define: "ماكرو", call_suffix: "!", must_define_before_use: true }
+  lifetimes: { syntax: "<'اسم>", special: ["'ثابت", "'_"] }
+  contracts: { precondition: "يتطلب", postcondition: "يضمن", result_var: "النتيجة" }
+  smart_contract: { keyword: "عقد", inherits_only_from: "عقد" }
+  property_test: "اختبر(\"...\") تكرارات N بذرة S"
+  by_reference: "&"        # في التعريف والاستدعاء
+  directives: ["@حجم", "@ذري", "@متطاير", "@غير_آمن", "@وقت_الترجمة"]
+
+entry_point: "دالة رئيسية()"   # اختيارية؛ عند وجودها كل التنفيذ داخل دوال

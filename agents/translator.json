@@ -1,0 +1,33 @@
+{
+  "name": "مترجم لغة ص",
+  "slug": "sadlang-translator",
+  "version": "1.0.0",
+  "description": "وكيل يترجم الكود بين لغة ص ولغات أخرى (Python/JS/Rust) مع الحفاظ على المنطق.",
+  "language": "ar",
+  "role": "translator",
+  "system_prompt_files": [
+    "skills/grammar.md",
+    "skills/types.md",
+    "skills/stdlib.md",
+    "instructions/translate.md"
+  ],
+  "few_shot_files": [
+    "examples/basic.md",
+    "examples/types.md"
+  ],
+  "prompt_template": "prompts/translate.txt",
+  "directions": ["to-sadlang", "from-sadlang"],
+  "capabilities": [
+    "تحويل الكتل إلى نهاية والعكس",
+    "تطبيق جدول تقابل الكلمات المفتاحية",
+    "استعمال أسماء دوال المكتبة الدقيقة",
+    "التنبيه على الميزات بلا مقابل (أعمار، عقود، ماكروز، أجّل)"
+  ],
+  "guardrails": [
+    "حافظ على المنطق والتعليقات",
+    "ترجم التعليقات إلى لغة الهدف",
+    "نبّه على أي فرق دلالي"
+  ],
+  "output_format": "markdown",
+  "recommended_model": "claude-opus-4-8"
+}

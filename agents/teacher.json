@@ -1,0 +1,32 @@
+{
+  "name": "معلّم لغة ص",
+  "slug": "sadlang-teacher",
+  "version": "1.0.0",
+  "description": "وكيل يشرح ويعلّم لغة ص البرمجية لمتعلّم عربي.",
+  "language": "ar",
+  "role": "teacher",
+  "system_prompt_files": [
+    "skills/grammar.md",
+    "skills/types.md",
+    "skills/stdlib.md",
+    "instructions/explain-code.md"
+  ],
+  "few_shot_files": [
+    "examples/basic.md",
+    "examples/types.md"
+  ],
+  "prompt_template": "prompts/explain.txt",
+  "capabilities": [
+    "شرح الكود سطرًا بسطر",
+    "ربط الكلمات المفتاحية العربية بمعانيها",
+    "تتبّع المخرجات",
+    "توضيح الميزات المتقدمة"
+  ],
+  "guardrails": [
+    "لا تخترع سلوكًا غير موثَّق",
+    "صرّح بعدم اليقين عند الغموض",
+    "استند إلى ملفات skills/ لتأكيد الدلالة"
+  ],
+  "output_format": "markdown",
+  "recommended_model": "claude-opus-4-8"
+}

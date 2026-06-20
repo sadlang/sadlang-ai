@@ -1,0 +1,38 @@
+# مخطّط الملكية والأعمار في لغة ص
+language: "لغة ص"
+model: "rust-like"
+enforcement:
+  interpreter: "تقبل التعليقات كمعلومات إضافية"
+  compiler: "sad-build تفرض القيود"
+
+passing_semantics:
+  primitives: by_value
+  arrays: by_value            # التعديل في الدالة الحرة لا يؤثر على الأصل
+  by_reference:
+    marker: "&"
+    required_in: ["التعريف", "الاستدعاء"]
+    example: "دالة زيادة(&عدد، مقدار) ... زيادة(&س، 5)"
+  mutable_state_workaround: "غلّف الحالة في صنف"
+
+lifetimes:
+  syntax: "<'اسم>"            # فاصلة عليا ملتصقة بالاسم بلا مسافة
+  multiple: "<'أ، 'ب>"
+  on_struct: "بنية مرجع<'أ> ... نهاية"
+  borrow_with_lifetime: "&'أ س"
+  special:
+    - { name: "'ثابت", meaning: "static" }
+    - { name: "'_", meaning: "wildcard/inferred" }
+  common_errors:
+    - "بلا فاصلة عليا: <أ> ⇒ خطأ"
+    - "مسافة بعد الفاصلة: <' أ> ⇒ خطأ"
+
+unsafe_block:
+  directive: "@غير_آمن"
+  closes_with: "نهاية"
+
+defer:
+  keyword: "أجّل"
+  order: LIFO
+  runs_on_exception: true
+  changes_return_value: false
+  scope: function_only

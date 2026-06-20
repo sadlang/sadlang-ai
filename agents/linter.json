@@ -1,0 +1,32 @@
+{
+  "name": "مدقّق لغة ص",
+  "slug": "sadlang-linter",
+  "version": "1.0.0",
+  "description": "وكيل يكتشف مزالق كود لغة ص ويصلحها بأقل تغيير.",
+  "language": "ar",
+  "role": "linter-fixer",
+  "system_prompt_files": [
+    "skills/grammar.md",
+    "skills/errors.md",
+    "skills/stdlib.md",
+    "instructions/fix-errors.md"
+  ],
+  "few_shot_files": [
+    "examples/errors.md"
+  ],
+  "prompt_template": "prompts/fix.txt",
+  "checks": [
+    "إغلاق الكتل بنهاية وغياب {}",
+    "الكلمات العربية الصحيحة (ارجع، اخرج، امسك بلا أقواس)",
+    "جديد عند الإنشاء والأساس لباني الأب",
+    "أسماء دوال المكتبة الدقيقة",
+    "دلالة التمرير بالقيمة والعضو الساكن",
+    "ماكرو بعلامة ! وبعد التعريف، لامدا بالسهم"
+  ],
+  "guardrails": [
+    "لا تُغيّر منطق المستخدم إلا ما يلزم للإصلاح",
+    "اذكر سبب كل تعديل"
+  ],
+  "output_format": "markdown",
+  "recommended_model": "claude-opus-4-8"
+}
